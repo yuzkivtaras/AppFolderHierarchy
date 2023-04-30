@@ -1,1 +1,1 @@
-# AppFolderHierarchy
+# ApplicationFolderHierarchy

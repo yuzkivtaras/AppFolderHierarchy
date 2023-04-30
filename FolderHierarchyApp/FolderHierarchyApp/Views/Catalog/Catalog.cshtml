@@ -1,0 +1,85 @@
+﻿@using Entities.Models;
+@model IEnumerable<Catalog>
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <p>Not found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var catalog in Model)
+        {
+            <li><a href="@Url.Action("Catalog", new { id = catalog.Id })">@catalog.NameCatalog</a></li>
+        }
+    </ul>
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Import/Export Catalog</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <form method="post" enctype="multipart/form-data" asp-action="ImportCatalog">
+                                <div class="form-group">
+                                    <label for="file" class="font-weight-bold">Import a txt file:</label>
+                                    <input type="file" name="file" id="file" class="form-control-file" required>
+                                    <small class="form-text text-muted d-block">Please select a file in .txt format.</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Import</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <form method="post" asp-action="ExportCatalog">
+                                <div class="form-group">
+                                    <label for="file" class="font-weight-bold">Export catalogs to txt:</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Export</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 1000px;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-block {
+        border-radius: 5px;
+    }
+
+    /* Add custom style for the form controls to align all buttons */
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
+
+
+
+

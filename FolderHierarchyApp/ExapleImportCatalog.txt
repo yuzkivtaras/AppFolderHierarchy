@@ -1,0 +1,8 @@
+1,Creating Digital Images,1,
+2,Resources,2,1
+3,Evidence,2,1
+4,Graphic Products,2,1
+5,Primary Sources,3,2
+6,Secondary Sources,3,2
+7,Process,3,4
+8,Final Product,3,4
